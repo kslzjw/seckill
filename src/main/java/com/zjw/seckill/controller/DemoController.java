@@ -1,10 +1,6 @@
 package com.zjw.seckill.controller;
 
-import com.zjw.seckill.rabbitmq.MQSender;
 import com.zjw.seckill.redis.RedisService;
-import com.zjw.seckill.redis.UserKey;
-import com.zjw.seckill.result.CodeMsg;
-import com.zjw.seckill.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +14,9 @@ public class DemoController {
     @Autowired
     RedisService redisService;
 
-
-    @Autowired
-    MQSender sender;
+//
+//    @Autowired
+//    MQSender sender;
 
 //    @RequestMapping("/mq")
 //    @ResponseBody

@@ -2,9 +2,6 @@ package com.zjw.seckill.kafka;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.zjw.seckill.rabbitmq.MQConfig;
-import com.zjw.seckill.rabbitmq.MQSender;
-import com.zjw.seckill.redis.RedisService;
 import com.zjw.seckill.redis.SeckillMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
