@@ -18,7 +18,7 @@ JMeter
 
 后端技术 ：SpringBoot + MyBatis + MySQL
 
-中间件技术 : Druid + Redis + RabbitMQ + Guava
+中间件技术 : Druid + Redis + Kafka + Guava + Gson
 
 ## 秒杀优化方向
 
