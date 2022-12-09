@@ -3,6 +3,7 @@ package com.zjw.seckill.rabbitmq;
 import com.zjw.seckill.bean.SeckillOrder;
 import com.zjw.seckill.bean.User;
 import com.zjw.seckill.redis.RedisService;
+import com.zjw.seckill.redis.SeckillMessage;
 import com.zjw.seckill.service.GoodsService;
 import com.zjw.seckill.service.OrderService;
 import com.zjw.seckill.service.SeckillService;

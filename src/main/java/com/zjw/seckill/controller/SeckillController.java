@@ -3,8 +3,9 @@ package com.zjw.seckill.controller;
 import com.google.common.util.concurrent.RateLimiter;
 import com.zjw.seckill.bean.SeckillOrder;
 import com.zjw.seckill.bean.User;
+import com.zjw.seckill.kafka.KafkaSender;
 import com.zjw.seckill.rabbitmq.MQSender;
-import com.zjw.seckill.rabbitmq.SeckillMessage;
+import com.zjw.seckill.redis.SeckillMessage;
 import com.zjw.seckill.redis.GoodsKey;
 import com.zjw.seckill.redis.RedisService;
 import com.zjw.seckill.result.CodeMsg;
@@ -15,6 +16,7 @@ import com.zjw.seckill.service.SeckillService;
 import com.zjw.seckill.vo.GoodsVo;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,8 +44,10 @@ public class SeckillController implements InitializingBean {
     @Autowired
     RedisService redisService;
 
+//    @Autowired
+//    MQSender sender;
     @Autowired
-    MQSender sender;
+    KafkaSender kafkaSender;
 
     //基于令牌桶算法的限流实现类
     RateLimiter rateLimiter = RateLimiter.create(10);
@@ -99,7 +103,8 @@ public class SeckillController implements InitializingBean {
         SeckillMessage message = new SeckillMessage();
         message.setUser(user);
         message.setGoodsId(goodsId);
-        sender.sendSeckillMessage(message);
+//        sender.sendSeckillMessage(message);
+        kafkaSender.sendSeckillMessage(message);
         return Result.success(0);//排队中
     }
 

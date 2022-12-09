@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 8.0
 Source Host           : localhost:3306
-Source Database       : seckill
+Source Database       : java_ssm_review
 
 Target Server Type    : MYSQL
 Target Server Version : 8.0

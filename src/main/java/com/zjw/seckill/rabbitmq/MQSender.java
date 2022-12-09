@@ -1,6 +1,7 @@
 package com.zjw.seckill.rabbitmq;
 
 import com.zjw.seckill.redis.RedisService;
+import com.zjw.seckill.redis.SeckillMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -26,7 +27,7 @@ public class MQSender {
 		log.info("send topic message:"+msg);
 		amqpTemplate.convertAndSend(MQConfig.TOPIC_EXCHANGE, "topic.key1", msg+"1");
 		amqpTemplate.convertAndSend(MQConfig.TOPIC_EXCHANGE, "topic.key2", msg+"2");
-	}
+	    }
 
 	public void sendSeckillMessage(SeckillMessage message){
         String msg = RedisService.beanToString(message);
